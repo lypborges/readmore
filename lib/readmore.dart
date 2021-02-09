@@ -62,10 +62,10 @@ const String _kLineSeparator = '\u2028';
 class ReadMoreTextState extends State<ReadMoreText> {
   bool _readMore = true;
 
-  void _onTapLink() {  
-    setState((){
-    _readMore = !_readMore;
-    widget.callback?.call(_readMore);
+  void _onTapLink() {
+    setState(() {
+      _readMore = !_readMore;
+      widget.callback?.call(_readMore);
     });
   }
 
@@ -83,8 +83,7 @@ class ReadMoreTextState extends State<ReadMoreText> {
     final textScaleFactor =
         widget.textScaleFactor ?? MediaQuery.textScaleFactorOf(context);
     final overflow = defaultTextStyle.overflow;
-    final locale =
-        widget.locale ?? Localizations.localeOf(context, nullOk: true);
+    final locale = widget.locale ?? Localizations.localeOf(context);
     final colorClickableText =
         widget.colorClickableText ?? Theme.of(context).accentColor;
     final _defaultLessStyle = widget.lessStyle ??
